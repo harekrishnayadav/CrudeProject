@@ -35,4 +35,89 @@ public class BankAccount extends ModelBase {
 	private Date endDate;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "onwerAccountDeposit")
 	private Set<AccountDeposit> onwedAccountDeposits;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "onwerAccountWithrawal")
+	private Set<AccontWithdrawal> ownedAccountWithrawals;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+	public Long getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Long balance) {
+		this.balance = balance;
+	}
+
+	public Date getLastTransactionDate() {
+		return lastTransactionDate;
+	}
+
+	public void setLastTransactionDate(Date lastTransactionDate) {
+		this.lastTransactionDate = lastTransactionDate;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public Set<AccountDeposit> getOnwedAccountDeposits() {
+		return onwedAccountDeposits;
+	}
+
+	public void setOnwedAccountDeposits(Set<AccountDeposit> onwedAccountDeposits) {
+		this.onwedAccountDeposits = onwedAccountDeposits;
+	}
+
+	public Set<AccontWithdrawal> getOwnedAccountWithrawals() {
+		return ownedAccountWithrawals;
+	}
+
+	public void setOwnedAccountWithrawals(Set<AccontWithdrawal> ownedAccountWithrawals) {
+		this.ownedAccountWithrawals = ownedAccountWithrawals;
+	}
+
+	public String toString() {
+		return String.format("AC/%d-%s", id, accountName);
+
+	}
+
+	public boolean equals(Object obj) {
+		if (obj != null && obj instanceof BankAccount) {
+			return this.hashCode() == ((BankAccount) obj).hashCode();
+		} else {
+
+		}
+		return false;
+	}
+
+	public int hashCode() {
+		return this.id.hashCode();
+
+	}
 }
