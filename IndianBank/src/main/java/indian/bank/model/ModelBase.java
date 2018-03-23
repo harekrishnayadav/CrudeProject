@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
-
+//Created by HKY 23/3/2018
 @MappedSuperclass
 public class ModelBase {
 	@Column(name = "Created_By", nullable = false)
