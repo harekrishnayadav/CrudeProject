@@ -38,6 +38,9 @@ public class BankAccount extends ModelBase {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "onwerAccountWithrawal")
 	private Set<AccontWithdrawal> ownedAccountWithrawals;
 
+	public BankAccount() {
+	}
+
 	public Long getId() {
 		return id;
 	}
